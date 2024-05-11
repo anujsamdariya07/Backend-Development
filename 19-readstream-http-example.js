@@ -9,11 +9,9 @@ http
     const fileStream = fs.createReadStream("./content/big.txt", "utf8");
     fileStream.on("open", () => {
       fileStream.pipe(res);
-    //   We are sending file in chunks instead of sending the file in a variable which will take up a lot of space
     });
     fileStream.on("error", (err) => {
       res.end(err);
     });
   })
-  .listen(5000)
-
+  .listen(5000);
